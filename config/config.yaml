@@ -1,0 +1,90 @@
+# ─── MQTT ────────────────────────────────────────────────────────────────────────
+mqtt:
+  broker_host: "localhost"
+  broker_port: 1883
+  username: ""
+  password: ""
+  keepalive: 60
+  topic_prefix: "factory/machines"
+  qos: 1
+
+# ─── Machines / Sensors ──────────────────────────────────────────────────────────
+machines:
+  - id: "machine_01"
+    name: "CNC Lathe #1"
+    location: "Hall A"
+    sensors:
+      - type: temperature        # °C
+        normal_min: 20.0
+        normal_max: 80.0
+        alert_min: 10.0
+        alert_max: 95.0
+      - type: vibration          # mm/s RMS
+        normal_min: 0.0
+        normal_max: 4.5
+        alert_min: 0.0
+        alert_max: 7.0
+      - type: power_consumption  # kW
+        normal_min: 0.5
+        normal_max: 15.0
+        alert_min: 0.0
+        alert_max: 20.0
+
+  - id: "machine_02"
+    name: "Hydraulic Press #1"
+    location: "Hall B"
+    sensors:
+      - type: temperature
+        normal_min: 25.0
+        normal_max: 85.0
+        alert_min: 10.0
+        alert_max: 100.0
+      - type: vibration
+        normal_min: 0.0
+        normal_max: 5.0
+        alert_min: 0.0
+        alert_max: 8.0
+      - type: power_consumption
+        normal_min: 1.0
+        normal_max: 22.0
+        alert_min: 0.0
+        alert_max: 30.0
+
+  - id: "machine_03"
+    name: "Conveyor Belt #1"
+    location: "Hall A"
+    sensors:
+      - type: temperature
+        normal_min: 20.0
+        normal_max: 60.0
+        alert_min: 10.0
+        alert_max: 75.0
+      - type: vibration
+        normal_min: 0.0
+        normal_max: 3.0
+        alert_min: 0.0
+        alert_max: 5.0
+      - type: power_consumption
+        normal_min: 0.2
+        normal_max: 8.0
+        alert_min: 0.0
+        alert_max: 12.0
+
+# ─── Simulation ──────────────────────────────────────────────────────────────────
+simulation:
+  publish_interval_seconds: 5
+  anomaly_probability: 0.05     # 5 % chance of generating an out-of-range value
+
+# ─── InfluxDB ────────────────────────────────────────────────────────────────────
+influxdb:
+  url: "http://localhost:8086"
+  token: "my-super-secret-token"
+  org: "iot-org"
+  bucket: "iot-monitoring"
+
+# ─── Logging ─────────────────────────────────────────────────────────────────────
+logging:
+  level: "INFO"
+  file: "logs/iot_monitoring.log"
+  max_bytes: 10485760   # 10 MB
+  backup_count: 5
