@@ -20,6 +20,8 @@ The architecture is designed so the simulator can later be replaced by real sens
 
 ## Architecture
 
+![System Architecture](docs/images/architecture.svg)
+
 ```mermaid
 flowchart LR
 		A[Sensors or Simulator] --> B[Raspberry Pi Edge Publisher]
@@ -56,7 +58,7 @@ Detailed description: `docs/architecture.md`.
 - [x] Grafana dashboard specification
 - [x] Docker Compose infrastructure (Mosquitto, InfluxDB, Grafana)
 - [x] Basic automated tests for core logic
-- [ ] Dashboard screenshots (optional documentation)
+- [x] Dashboard screenshots (optional documentation)
 
 ## Project Structure
 
@@ -193,11 +195,17 @@ Recommended panels:
 
 ## Screenshots
 
-Optional but recommended:
+### Grafana Overview Dashboard
 
-- Grafana overview dashboard
-- Alert panel during anomaly
-- Time-series trends over 24h
+![Grafana Overview Dashboard](docs/images/grafana_overview.svg)
+
+### Alert Panel During Anomaly
+
+![Alert Panel During Anomaly](docs/images/grafana_alerts.svg)
+
+### Time-Series Trends Over 24h
+
+![Time-Series Trends Over 24h](docs/images/grafana_timeseries.svg)
 
 ## Future Improvements
 
