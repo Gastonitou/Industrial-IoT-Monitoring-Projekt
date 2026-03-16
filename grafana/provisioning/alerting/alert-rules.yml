@@ -1,0 +1,133 @@
+apiVersion: 1
+
+groups:
+  - orgId: 1
+    name: industrial-iot-threshold-rules
+    folder: Industrial IoT
+    interval: 30s
+    rules:
+      - uid: temp-threshold-rule
+        title: Industrial IoT - Temperature Threshold Exceeded
+        condition: C
+        data:
+          - refId: A
+            datasourceUid: influxdb
+            model:
+              refId: A
+              query: |
+                from(bucket: "industrial-iot")
+                  |> range(start: -5m)
+                  |> filter(fn: (r) => r._measurement == "machine_telemetry")
+                  |> filter(fn: (r) => r._field == "temperature_c")
+                  |> last()
+          - refId: C
+            datasourceUid: __expr__
+            model:
+              refId: C
+              type: classic_conditions
+              conditions:
+                - evaluator:
+                    type: gt
+                    params:
+                      - 85
+                  operator:
+                    type: and
+                  query:
+                    params:
+                      - A
+                  reducer:
+                    type: last
+        noDataState: NoData
+        execErrState: Error
+        for: 30s
+        labels:
+          project: industrial-iot
+          sensor: temperature
+          severity: critical
+        annotations:
+          description: Latest machine temperature is above 85 C.
+          summary: Temperature above threshold
+
+      - uid: vibration-threshold-rule
+        title: Industrial IoT - Vibration Threshold Exceeded
+        condition: C
+        data:
+          - refId: A
+            datasourceUid: influxdb
+            model:
+              refId: A
+              query: |
+                from(bucket: "industrial-iot")
+                  |> range(start: -5m)
+                  |> filter(fn: (r) => r._measurement == "machine_telemetry")
+                  |> filter(fn: (r) => r._field == "vibration_mm_s")
+                  |> last()
+          - refId: C
+            datasourceUid: __expr__
+            model:
+              refId: C
+              type: classic_conditions
+              conditions:
+                - evaluator:
+                    type: gt
+                    params:
+                      - 7.5
+                  operator:
+                    type: and
+                  query:
+                    params:
+                      - A
+                  reducer:
+                    type: last
+        noDataState: NoData
+        execErrState: Error
+        for: 30s
+        labels:
+          project: industrial-iot
+          sensor: vibration
+          severity: critical
+        annotations:
+          description: Latest machine vibration is above 7.5 mm/s.
+          summary: Vibration above threshold
+
+      - uid: power-threshold-rule
+        title: Industrial IoT - Power Threshold Exceeded
+        condition: C
+        data:
+          - refId: A
+            datasourceUid: influxdb
+            model:
+              refId: A
+              query: |
+                from(bucket: "industrial-iot")
+                  |> range(start: -5m)
+                  |> filter(fn: (r) => r._measurement == "machine_telemetry")
+                  |> filter(fn: (r) => r._field == "power_w")
+                  |> last()
+          - refId: C
+            datasourceUid: __expr__
+            model:
+              refId: C
+              type: classic_conditions
+              conditions:
+                - evaluator:
+                    type: gt
+                    params:
+                      - 12000
+                  operator:
+                    type: and
+                  query:
+                    params:
+                      - A
+                  reducer:
+                    type: last
+        noDataState: NoData
+        execErrState: Error
+        for: 30s
+        labels:
+          project: industrial-iot
+          sensor: power
+          severity: critical
+        annotations:
+          description: Latest machine power consumption is above 12000 W.
+          summary: Power above threshold
