@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" width="960" height="460" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="960" height="460" fill="#111217"/>
+  <rect width="960" height="48" fill="#1c1e2d"/>
+  <text x="20" y="30" font-size="16" font-weight="bold" fill="#e8e9ed">📈  Time-Series Trends – Last 24 Hours</text>
+  <text x="780" y="22" font-size="11" fill="#8e9099">Time range: Last 24h</text>
+  <rect x="780" y="28" width="140" height="14" rx="3" fill="#2c2f45"/>
+  <text x="850" y="39" text-anchor="middle" font-size="10" fill="#a3a6b4">2026-03-09 · All Machines</text>
+
+  <!-- Temperature 24h -->
+  <rect x="16" y="60" width="920" height="110" rx="6" fill="#1c1e2d" stroke="#2c2f45" stroke-width="1"/>
+  <text x="30" y="80" font-size="12" fill="#3498db" font-weight="bold">Temperature °C</text>
+  <text x="30" y="96" font-size="10" fill="#5d6070">MACHINE-01 (blue) · MACHINE-02 (cyan) · MACHINE-03 (red)</text>
+  <!-- threshold -->
+  <line x1="60" y1="105" x2="920" y2="105" stroke="#e74c3c" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="900" y="102" font-size="9" fill="#e74c3c">85°C</text>
+  <!-- M1 line -->
+  <polyline points="60,140 155,135 250,128 345,132 440,125 535,138 630,120 725,130 820,122 920,118" fill="none" stroke="#3498db" stroke-width="1.8"/>
+  <!-- M2 line -->
+  <polyline points="60,145 155,142 250,138 345,140 440,133 535,128 630,135 725,125 820,130 920,126" fill="none" stroke="#00bcd4" stroke-width="1.8"/>
+  <!-- M3 line with spike -->
+  <polyline points="60,148 155,140 250,135 345,130 440,128 535,125 630,115 695,100 725,93 760,98 820,128 920,130" fill="none" stroke="#e74c3c" stroke-width="1.8"/>
+  <!-- x labels -->
+  <text x="60" y="170" font-size="9" fill="#5d6070">00:00</text>
+  <text x="250" y="170" font-size="9" fill="#5d6070">06:00</text>
+  <text x="440" y="170" font-size="9" fill="#5d6070">12:00</text>
+  <text x="630" y="170" font-size="9" fill="#5d6070">18:00</text>
+  <text x="820" y="170" font-size="9" fill="#5d6070">24:00</text>
+
+  <!-- Vibration 24h -->
+  <rect x="16" y="185" width="920" height="110" rx="6" fill="#1c1e2d" stroke="#2c2f45" stroke-width="1"/>
+  <text x="30" y="205" font-size="12" fill="#e67e22" font-weight="bold">Vibration mm/s</text>
+  <text x="30" y="221" font-size="10" fill="#5d6070">MACHINE-01 (orange) · MACHINE-02 (yellow) · MACHINE-03 (pink)</text>
+  <line x1="60" y1="228" x2="920" y2="228" stroke="#e67e22" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="900" y="225" font-size="9" fill="#e67e22">7.5</text>
+  <polyline points="60,270 155,265 250,258 345,262 440,255 535,250 630,265 725,248 820,260 920,252" fill="none" stroke="#e67e22" stroke-width="1.8"/>
+  <polyline points="60,272 155,268 250,263 345,260 440,258 535,242 630,256 725,238 820,255 920,248" fill="none" stroke="#f1c40f" stroke-width="1.8"/>
+  <polyline points="60,268 155,262 250,255 345,248 440,258 535,252 630,235 695,222 725,230 820,262 920,255" fill="none" stroke="#e91e63" stroke-width="1.8"/>
+  <text x="60" y="295" font-size="9" fill="#5d6070">00:00</text>
+  <text x="250" y="295" font-size="9" fill="#5d6070">06:00</text>
+  <text x="440" y="295" font-size="9" fill="#5d6070">12:00</text>
+  <text x="630" y="295" font-size="9" fill="#5d6070">18:00</text>
+  <text x="820" y="295" font-size="9" fill="#5d6070">24:00</text>
+
+  <!-- Power 24h -->
+  <rect x="16" y="310" width="920" height="110" rx="6" fill="#1c1e2d" stroke="#2c2f45" stroke-width="1"/>
+  <text x="30" y="330" font-size="12" fill="#2ecc71" font-weight="bold">Power Consumption W</text>
+  <text x="30" y="346" font-size="10" fill="#5d6070">MACHINE-01 (green) · MACHINE-02 (teal) · MACHINE-03 (lime)</text>
+  <line x1="60" y1="352" x2="920" y2="352" stroke="#f1c40f" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="895" y="349" font-size="9" fill="#f1c40f">12 000W</text>
+  <polyline points="60,390 155,385 250,375 345,380 440,370 535,382 630,365 725,375 820,368 920,362" fill="none" stroke="#2ecc71" stroke-width="1.8"/>
+  <polyline points="60,392 155,388 250,380 345,375 440,372 535,365 630,370 725,360 820,372 920,365" fill="none" stroke="#1abc9c" stroke-width="1.8"/>
+  <polyline points="60,388 155,382 250,370 345,365 440,375 535,362 630,345 695,338 725,342 820,380 920,372" fill="none" stroke="#8bc34a" stroke-width="1.8"/>
+  <text x="60" y="418" font-size="9" fill="#5d6070">00:00</text>
+  <text x="250" y="418" font-size="9" fill="#5d6070">06:00</text>
+  <text x="440" y="418" font-size="9" fill="#5d6070">12:00</text>
+  <text x="630" y="418" font-size="9" fill="#5d6070">18:00</text>
+  <text x="820" y="418" font-size="9" fill="#5d6070">24:00</text>
+
+  <text x="480" y="452" text-anchor="middle" font-size="10" fill="#5d6070">Grafana – 24h Time-Series Trends | Industrial IoT Monitoring System</text>
+</svg>

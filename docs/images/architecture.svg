@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" font-family="Segoe UI, Arial, sans-serif">
+  <!-- Background -->
+  <rect width="960" height="420" fill="#f8f9fa" rx="12"/>
+
+  <!-- Title -->
+  <text x="480" y="36" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a2e">Industrial IoT Monitoring – System Architecture</text>
+
+  <!-- ── Row 1: main pipeline ── -->
+
+  <!-- Sensors/Simulator box -->
+  <rect x="30" y="90" width="150" height="70" rx="10" fill="#4a90d9" stroke="#2c6fad" stroke-width="2"/>
+  <text x="105" y="121" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Sensors /</text>
+  <text x="105" y="139" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Simulator</text>
+
+  <!-- Arrow 1 -->
+  <line x1="180" y1="125" x2="225" y2="125" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Edge Publisher box -->
+  <rect x="225" y="90" width="160" height="70" rx="10" fill="#27ae60" stroke="#1e8449" stroke-width="2"/>
+  <text x="305" y="118" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Edge Publisher</text>
+  <text x="305" y="136" text-anchor="middle" font-size="11" fill="#d5f5e3">(Raspberry Pi)</text>
+  <text x="305" y="152" text-anchor="middle" font-size="10" fill="#d5f5e3">src/edge/publisher.py</text>
+
+  <!-- Arrow 2 with MQTT label -->
+  <line x1="385" y1="125" x2="430" y2="125" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="408" y="115" text-anchor="middle" font-size="10" fill="#e67e22" font-weight="bold">MQTT</text>
+
+  <!-- Mosquitto Broker box -->
+  <rect x="430" y="90" width="150" height="70" rx="10" fill="#e67e22" stroke="#ca6f1e" stroke-width="2"/>
+  <text x="505" y="121" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Mosquitto</text>
+  <text x="505" y="139" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Broker</text>
+
+  <!-- Arrow 3 -->
+  <line x1="580" y1="125" x2="625" y2="125" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Backend Subscriber box -->
+  <rect x="625" y="90" width="160" height="70" rx="10" fill="#8e44ad" stroke="#6c3483" stroke-width="2"/>
+  <text x="705" y="118" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Backend</text>
+  <text x="705" y="136" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Subscriber</text>
+  <text x="705" y="152" text-anchor="middle" font-size="10" fill="#e8daef">src/backend/subscriber.py</text>
+
+  <!-- ── Row 2: InfluxDB and CSV ── -->
+
+  <!-- Down arrow to InfluxDB -->
+  <line x1="675" y1="160" x2="675" y2="250" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Down arrow to CSV -->
+  <line x1="735" y1="160" x2="735" y2="250" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- InfluxDB box -->
+  <rect x="600" y="250" width="130" height="65" rx="10" fill="#17a589" stroke="#138d75" stroke-width="2"/>
+  <text x="665" y="278" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">InfluxDB</text>
+  <text x="665" y="296" text-anchor="middle" font-size="10" fill="#d0ece7">Time-series DB</text>
+
+  <!-- CSV Logs box -->
+  <rect x="745" y="250" width="130" height="65" rx="10" fill="#7f8c8d" stroke="#626567" stroke-width="2"/>
+  <text x="810" y="278" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">CSV Logs</text>
+  <text x="810" y="296" text-anchor="middle" font-size="10" fill="#f2f3f4">data/alerts_log.csv</text>
+
+  <!-- Arrow InfluxDB to Grafana -->
+  <line x1="600" y1="283" x2="530" y2="283" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Grafana box -->
+  <rect x="370" y="250" width="130" height="65" rx="10" fill="#d4ac0d" stroke="#b7950b" stroke-width="2"/>
+  <text x="435" y="278" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Grafana</text>
+  <text x="435" y="296" text-anchor="middle" font-size="10" fill="#fef9e7">Dashboard :3000</text>
+
+  <!-- Arrowhead marker -->
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- Legend -->
+  <text x="30" y="390" font-size="11" fill="#555">Flow: Sensor data → Edge → MQTT → Subscriber → InfluxDB → Grafana  |  Alerts also written to CSV</text>
+</svg>
