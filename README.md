@@ -56,7 +56,7 @@ Detailed description: `docs/architecture.md`.
 - [x] Grafana dashboard specification
 - [x] Docker Compose infrastructure (Mosquitto, InfluxDB, Grafana)
 - [x] Basic automated tests for core logic
-- [ ] Dashboard screenshots (optional documentation)
+- [x] Dashboard screenshots
 
 ## Project Structure
 
@@ -73,6 +73,8 @@ Industrial-IoT-Monitoring-Projekt/
 |       `-- subscriber.py
 |-- data/
 |   `-- .gitkeep
+|-- screenshots/
+|   `-- grafana_dashboard_overview.png
 |-- dashboard/
 |   `-- grafana_dashboard_description.md
 |-- docs/
@@ -193,11 +195,17 @@ Recommended panels:
 
 ## Screenshots
 
-Optional but recommended:
+### Grafana Dashboard – Machine Condition Overview
 
-- Grafana overview dashboard
-- Alert panel during anomaly
-- Time-series trends over 24h
+![Grafana Dashboard Overview](https://github.com/user-attachments/assets/aed829cd-f418-418c-b3ce-8299e0f9ab0f)
+
+The dashboard displays real-time sensor data for MACHINE-01:
+
+- **Temperature (°C)** – time-series trend with threshold alerts
+- **Vibration (mm/s)** – continuous vibration monitoring
+- **Power Consumption (W)** – live power draw trend
+- **Latest Machine Status** – current operational state (e.g. RUNNING)
+- **Recent Alerts** – table of triggered alert events with timestamp, type, and severity
 
 ## Future Improvements
 
