@@ -12,6 +12,10 @@ INFLUXDB_TOKEN = os.getenv("INFLUXDB_TOKEN", "")
 INFLUXDB_ORG = os.getenv("INFLUXDB_ORG", "iot-org")
 INFLUXDB_BUCKET = os.getenv("INFLUXDB_BUCKET", "iot_metrics")
 
+WARN_TEMP_MAX = float(os.getenv("WARN_TEMP_MAX", 75))
+WARN_VIBRATION_MAX = float(os.getenv("WARN_VIBRATION_MAX", 6.0))
+WARN_POWER_MAX = float(os.getenv("WARN_POWER_MAX", 10500))
+
 ALERT_TEMP_MAX = float(os.getenv("ALERT_TEMP_MAX", 85))
 ALERT_VIBRATION_MAX = float(os.getenv("ALERT_VIBRATION_MAX", 7.5))
 ALERT_POWER_MAX = float(os.getenv("ALERT_POWER_MAX", 12000))

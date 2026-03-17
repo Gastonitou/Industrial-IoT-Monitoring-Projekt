@@ -208,8 +208,37 @@ Recommended panels:
 - Temperature trend
 - Vibration trend
 - Power consumption trend
-- Machine status
+- Machine status (**Latest Machine Status** stat panel — shows RUNNING / WARNING / ALERT per machine)
 - Active alerts table
+
+### Machine Status Panel (Panel 4)
+
+The **Latest Machine Status** stat panel uses the numeric `status_code` field written to InfluxDB.
+Add the following Flux query to the panel:
+
+```flux
+from(bucket: "iot_metrics")
+  |> range(start: -5m)
+  |> filter(fn: (r) => r._measurement == "machine_telemetry" and r._field == "status_code")
+  |> group(columns: ["machine_id"])
+  |> last()
+```
+
+Add these **Value mappings** in the panel settings:
+
+| Value | Display text | Color |
+|-------|-------------|-------|
+| `0` | RUNNING | Green |
+| `1` | WARNING | Yellow |
+| `2` | ALERT | Red |
+
+The simulator generates all three states automatically based on configurable thresholds:
+
+| Metric | WARNING threshold | ALERT threshold |
+|--------|------------------|----------------|
+| Temperature | > 75 °C | > 85 °C |
+| Vibration | > 6.0 mm/s | > 7.5 mm/s |
+| Power | > 10 500 W | > 12 000 W |
 
 ## Raspberry Pi Deployment Notes
 

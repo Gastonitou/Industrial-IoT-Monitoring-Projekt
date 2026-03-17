@@ -21,8 +21,16 @@
 - **Alert threshold line:** 12 000 W (yellow)
 
 ### Panel 4 – Machine Status (Stat Panel)
-- **Query:** Latest `status` tag value per `machine_id`
-- **Value mappings:** RUNNING → green, ALERT → red
+- **Query:**
+  ```flux
+  from(bucket: "iot_metrics")
+    |> range(start: -5m)
+    |> filter(fn: (r) => r._measurement == "machine_telemetry" and r._field == "status_code")
+    |> group(columns: ["machine_id"])
+    |> last()
+  ```
+- **Value mappings:** `0` → RUNNING (green), `1` → WARNING (yellow), `2` → ALERT (red)
+- **Group by:** `machine_id` tag (one stat cell per machine)
 
 ### Panel 5 – Active Alerts Table
 - **Source:** `data/alerts_log.csv` (or InfluxDB alerts measurement)

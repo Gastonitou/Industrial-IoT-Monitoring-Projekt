@@ -59,6 +59,7 @@ def write_to_influxdb(write_api, telemetry: dict):
         .field("temperature_c", telemetry["temperature_c"])
         .field("vibration_mm_s", telemetry["vibration_mm_s"])
         .field("power_w", telemetry["power_w"])
+        .field("status_code", int(telemetry.get("status_code", 0)))
         .time(telemetry["timestamp"], WritePrecision.NANOSECONDS)
     )
     write_api.write(bucket=INFLUXDB_BUCKET, org=INFLUXDB_ORG, record=point)
