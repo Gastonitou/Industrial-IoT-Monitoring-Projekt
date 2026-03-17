@@ -55,9 +55,9 @@
   <text x="116" y="308" text-anchor="middle" font-size="12" fill="#a3a6b4">MACHINE-01 Status</text>
   <text x="116" y="358" text-anchor="middle" font-size="28" font-weight="bold" fill="#2ecc71">RUNNING</text>
 
-  <rect x="230" y="285" width="200" height="100" rx="6" fill="#1c1e2d" stroke="#2c2f45" stroke-width="1"/>
+  <rect x="230" y="285" width="200" height="100" rx="6" fill="#1c1e2d" stroke="#f1c40f" stroke-width="2"/>
   <text x="330" y="308" text-anchor="middle" font-size="12" fill="#a3a6b4">MACHINE-02 Status</text>
-  <text x="330" y="358" text-anchor="middle" font-size="28" font-weight="bold" fill="#2ecc71">RUNNING</text>
+  <text x="330" y="358" text-anchor="middle" font-size="28" font-weight="bold" fill="#f1c40f">WARNING</text>
 
   <rect x="444" y="285" width="200" height="100" rx="6" fill="#1c1e2d" stroke="#2c2f45" stroke-width="1"/>
   <text x="544" y="308" text-anchor="middle" font-size="12" fill="#a3a6b4">MACHINE-03 Status</text>

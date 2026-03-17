@@ -199,17 +199,27 @@ After logging in, add InfluxDB as a data source:
    - **Default Bucket:** `iot_metrics`
 6. Click **Save & Test**
 
-Dashboard specification is included in:
+### Import the Pre-built Dashboard
 
-`dashboard/grafana_dashboard_description.md`
+A ready-to-import Grafana dashboard is included at `dashboard/machine_overview.json`.
+It contains all five panels pre-configured — including the **Latest Machine Status** stat panel
+that automatically displays RUNNING / WARNING / ALERT per machine.
 
-Recommended panels:
+**To import:**
 
-- Temperature trend
-- Vibration trend
-- Power consumption trend
-- Machine status (**Latest Machine Status** stat panel — shows RUNNING / WARNING / ALERT per machine)
-- Active alerts table
+1. In Grafana go to **Dashboards → Import**
+2. Click **Upload dashboard JSON file**
+3. Select `dashboard/machine_overview.json`
+4. Select your **InfluxDB** datasource in the dropdown
+5. Click **Import**
+
+The **Latest Machine Status** panel will immediately show the live state of each machine with color-coded backgrounds:
+
+| Color | State | Meaning |
+|--------|-------|---------|
+| 🟢 Green | RUNNING | All metrics within normal range |
+| 🟡 Yellow | WARNING | At least one metric approaching the limit |
+| 🔴 Red | ALERT | At least one metric exceeded the alert threshold |
 
 ### Machine Status Panel (Panel 4)
 
