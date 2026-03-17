@@ -174,6 +174,31 @@ Alert events are logged into `data/alerts_log.csv`.
 
 ## Grafana Dashboard
 
+### Login
+
+After starting the infrastructure with `docker compose up -d`, open Grafana in your browser:
+
+**URL:** [http://localhost:3000](http://localhost:3000)
+
+| Field | Value |
+|-------|-------|
+| Username | `admin` |
+| Password | `admin` |
+
+> **Tip:** On first login Grafana may ask you to change the password. You can skip this or set a new one.
+
+After logging in, add InfluxDB as a data source:
+
+1. Go to **Connections → Data sources → Add data source**
+2. Choose **InfluxDB**
+3. Set **Query Language** to `Flux`
+4. Set **URL** to `http://influxdb:8086`
+5. Under **InfluxDB Details** set:
+   - **Organization:** `iot-org`
+   - **Token:** `my-super-secret-token`
+   - **Default Bucket:** `iot_metrics`
+6. Click **Save & Test**
+
 Dashboard specification is included in:
 
 `dashboard/grafana_dashboard_description.md`
